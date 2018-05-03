@@ -5,16 +5,16 @@ var User = require("../../models")
 // =============================================================
 module.exports = function(app) {
 
-  // GET route for getting all of the todos
+  // GET route for getting all of the userss
   app.get("/api/users", function(req, res) {
     // findAll returns all entries for a table when used with no options
     db.user.findAll({}).then(function(user) {
-      // We have access to the todos as an argument inside of the callback function
+      // We have access to the users as an argument inside of the callback function
       res.json(user);
     });
   });
 
-  // POST route for saving a new todo
+  // POST route for saving a new user
   app.post("/api/users", function(req, res) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
@@ -27,7 +27,7 @@ module.exports = function(app) {
       seller: req.body.seller
       
     }).then(function(user) {
-      // We have access to the new todo as an argument inside of the callback function
+      // We have access to the new user as an argument inside of the callback function
       res.json(user);
     })
       .catch(function(err) {
@@ -37,10 +37,10 @@ module.exports = function(app) {
       });
   });
 
-  // DELETE route for deleting todos. We can get the id of the todo to be deleted from
+  // DELETE route for deleting users. We can get the id of the user to be deleted from
   // req.params.id
    app.delete("/api/users", function(req, res) {
-    // We just have to specify which todo we want to destroy with "where"
+    // We just have to specify which user we want to destroy with "where"
     db.user.destroy({
       where: {
         id: req.params.id
@@ -51,7 +51,7 @@ module.exports = function(app) {
 
   });
 
-  // PUT route for updating todos. We can get the updated todo data from req.body
+  // PUT route for updating users. We can get the updated user data from req.body
   app.put("/api/users", function(req, res) {
 
     // Update takes in an object describing the properties we want to update, and

@@ -38,16 +38,16 @@ var Bag = require("../../models")
 // =============================================================
 module.exports = function(app) {
 
-  // GET route for getting all of the todos
+  // GET route for getting all of the bags
   app.get("/api/bags", function(req, res) {
     // findAll returns all entries for a table when used with no options
     db.bag.findAll({}).then(function(bag) {
-      // We have access to the todos as an argument inside of the callback function
+      // We have access to the bagss as an argument inside of the callback function
       res.json(bag);
     });
   });
 
-  // POST route for saving a new todo
+  // POST route for saving a new bag
   app.post("/api/bags", function(req, res) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
@@ -60,7 +60,7 @@ module.exports = function(app) {
       color: req.body.color,
       material: req.body.material,
     }).then(function(bag) {
-      // We have access to the new todo as an argument inside of the callback function
+      // We have access to the new bag as an argument inside of the callback function
       res.json(bag);
     })
       .catch(function(err) {
@@ -70,10 +70,10 @@ module.exports = function(app) {
       });
   });
 
-  // DELETE route for deleting todos. We can get the id of the todo to be deleted from
+  // DELETE route for deleting bags. We can get the id of the bag to be deleted from
   // req.params.id
    app.delete("/api/bags", function(req, res) {
-    // We just have to specify which todo we want to destroy with "where"
+    // We just have to specify which bag we want to destroy with "where"
     db.bag.destroy({
       where: {
         id: req.params.id
@@ -84,7 +84,7 @@ module.exports = function(app) {
 
   });
 
-  // PUT route for updating todos. We can get the updated todo data from req.body
+  // PUT route for updating bagss. We can get the updated bag data from req.body
   app.put("/api/bags", function(req, res) {
 
     // Update takes in an object describing the properties we want to update, and
