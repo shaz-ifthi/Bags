@@ -1,10 +1,5 @@
 module.exports = function(sequelize, DataTypes){
     var user = sequelize.define('user',{
-    id: {
-        type: DataTypes.INTEGER,
-        autoincrement: true,
-        primaryKey: true
-    },
     name:{
         type: DataTypes.STRING,
         allowNull: true
@@ -24,7 +19,7 @@ module.exports = function(sequelize, DataTypes){
     seller:{
         type: DataTypes.BOOLEAN,
         allowNull: true
-    },
+    }
     
 })
 

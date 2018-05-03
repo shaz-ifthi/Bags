@@ -24,11 +24,11 @@ module.exports = function(app) {
       email: req.body.email,
       password: req.body.password,
       credits: req.body.credits,
-      seller: req.body.seller
+      seller: req.body.seller,
       
     }).then(function(user) {
       // We have access to the new user as an argument inside of the callback function
-      res.json(user);
+      //res.json(user);
     })
       .catch(function(err) {
       // Whenever a validation or flag fails, an error is thrown
@@ -43,7 +43,7 @@ module.exports = function(app) {
     // We just have to specify which user we want to destroy with "where"
     db.user.destroy({
       where: {
-        id: req.params.id
+        name: req.body.name
       }
     }).then(function(user) {
       res.json(user);
