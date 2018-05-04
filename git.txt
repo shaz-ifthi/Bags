@@ -1,0 +1,6 @@
+1. git pull
+2. git checkout -b "name of branch"
+3. start work
+4. git add -add
+5. git commit -m
+6. git push origin branchname
