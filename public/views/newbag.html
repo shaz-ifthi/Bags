@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>New Bag</title>
+
+  <!-- CSS  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
+  <link href="../assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+  <!-- nav bar starts here -->
+  <div class="navbar-fixed">
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <ul class="left hide-on-med-and-down">
+          <li>
+            <a id="logo-container" href="/" class="left">Home</a>
+          </li>
+          <li>
+            <a href="/collections">Collections</a>
+          </li>
+          <li>
+            <a href="/popular">Popular</a>
+          </li>
+          <li>
+            <a href="#">Sell</a>
+          </li>
+          <li>
+            <a href="#">Account</a>
+          </li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a href="sass.html">
+              <i class="material-icons">search</i>
+            </a>
+          </li>
+          <li>
+            <a href="sass.html">
+              <i class="material-icons">shopping_cart</i>
+            </a>
+          </li>
+          <li>
+            <a href="sass.html">
+              <i class="material-icons">account_circle</i>
+            </a>
+          </li>
+          <li>
+            <a class="waves-effect waves-light btn">Login</a>
+          </li>
+        </ul>
+
+        <ul id="nav-mobile" class="sidenav">
+          <li>
+            <a href="#">Navbar Link</a>
+          </li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+          <i class="material-icons">menu</i>
+        </a>
+      </div>
+    </nav>
+  </div>
+  <!-- nav bar ends here -->
+  <div class="container">
+
+    <!-- Entire Body Starts -->
+    <div class="row">
+
+      <!-- Product Gallery Section Starts -->
+      <div class="col s12 m8 l9">
+
+
+        <div class="row">
+          <div class="col s12">
+
+            <div class="card">
+              <div class="card-content">
+                <p>Enter New Bag Info:</p>
+                <div class="form-group">
+                  <label for="bagBrand">Brand</label>
+                  <input type="text" class="form-control" id="bagBrand" placeholder="Prada, Balenciaga, Burberry, etc">
+                </div>
+
+                <div class="form-group">
+                  <label for="bagStyle">Style/Model</label>
+                  <input type="text" class="form-control" id="bagStyle" placeholder="Sling, Hobo, Clutch, etc">
+                </div>
+
+                <div class="form-group">
+                  <label for="bagPrice">Price</label>
+                  <input type="text" class="form-control" id="bagPrice" placeholder="$$$.$$">
+                </div>
+
+                <div class="form-group">
+                  <label for="bagMaterial">Material</label>
+                  <input type="text" class="form-control" id="bagMaterial" placeholder="Leather, Canvas, etc">
+                </div>
+
+                <div class="form-group">
+                  <label for="bagColor">Color</label>
+                  <input type="text" class="form-control" id="bagColor">
+                </div>
+
+                <div class="form-group">
+                  <label for="bagSKU">SKU #</label>
+                  <input type="text" class="form-control" id="bagSKU" placeholder="SKU #">
+                </div>
+
+                <div class="form-group">
+                  <label for="bagImage">Image link</label>
+                  <input type="text" class="form-control" id="bagImage" placeholder="image link">
+                </div>
+
+                <div class="form-group">
+                  <label for="bagDescription">Description</label>
+                  <input type="textarea" class="form-control" rows = "10" cols = "30" id="bagDescription" placeholder="Enter a brief description of bag here">
+                </div>
+<p>
+  <br>
+                <button type="submit" id="submitBTN" class="btn btn-default buttons">
+                  <span style="font-size:12px"></span>Submit</button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Entire Body Ends -->
+
+
+  <!-- footer starts here -->
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum velit non ea minus dignissimos laboriosam commodi.
+            Magnam reiciendis, animi tenetur laudantium iusto consequuntur ipsum fuga illum nobis aspernatur, eos nisi.</p>
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text"></h5>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Contact Us</h5>
+          <ul>
+            <li>
+              <a class="white-text" href="#!">Address</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Phone</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Twitter</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Facebook</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Instagram</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Copyright 2018
+        <a class="brown-text text-lighten-3">Locally Sourced "Cool Grandpa T-Shirts"</a>
+      </div>
+    </div>
+  </footer>
+  <!-- footer ends here -->
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- <script src="js/materialize.js"></script> -->
+  <!-- <script src="js/init.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+
+</html>
