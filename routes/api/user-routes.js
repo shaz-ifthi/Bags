@@ -28,7 +28,7 @@ module.exports = function(app) {
       
     }).then(function(user) {
       // We have access to the new user as an argument inside of the callback function
-      //res.json(user);
+      res.json(user);
     })
       .catch(function(err) {
       // Whenever a validation or flag fails, an error is thrown

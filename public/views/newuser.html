@@ -31,7 +31,7 @@
             <a href="/sell">Sell</a>
           </li>
           <li>
-            <a href="#">Account</a>
+            <a href="/users">Account</a>
           </li>
         </ul>
         <ul class="right hide-on-med-and-down">
@@ -46,7 +46,7 @@
             </a>
           </li>
           <li>
-            <a href="sass.html">
+            <a href="/users">
               <i class="material-icons">account_circle</i>
             </a>
           </li>
@@ -103,12 +103,12 @@
               <div class="input-field col s6">
                 <div class="form-group">
                   <label for="SKU">Password</label>
-                  <input type="text" class="form-control" id="password" placeholder="**********">
+                  <input type="password" class="form-control" id="password" placeholder="**********">
                 </div>
               </div>
             </div>
 
-            <button type="submit" id="submitBTN" class="btn btn-default buttons sell_bag">
+            <button type="submit" id="submitBTN" class="btn btn-default buttons new_user">
             <span style="font-size:12px"></span>Submit</button>
             </p>
           </div>
@@ -175,30 +175,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
   <script>
-    $('.sell_bag').on('click', function () {
+    $('.new_user').on('click', function () {
 
-      var bagObj = {
-        name: $('#name').val().trim(),
-        model: $('#model').val().trim(),
-        quantity: 1,
-        price: parseFloat($('#price').val().trim()),
-        color: $('#color').val().trim(),
-        material: $('#material').val().trim(),
-        SKU: $('#SKU').val().trim(),
-        image: $('#image').val().trim(),
-        description: $('#description').val().trim(),
-        sold: "false"
+      var userObj = {
+        name: $('#fullName').val().trim(),
+        email: $('#email').val().trim(),
+        userName: $('#userName').val().trim(),
+        password: $('#password').val().trim()
       }
-      $.post('/api/bags', bagObj).then(function (r) {
+      $.post('/api/users', userObj).then(function (r) {
         alert(r.name + " added")
-        $('#name').val() = ''
-        $('#model').val() = ''
-        $('#price').val() = ''
-        $('#color').val() = ''
-        $('#material').val() = ''
-        $('#SKU').val() = ''
-        $('#image').val() = ''
-        $('#description').val() = ''
+        $('#fullName').val('')
+        $('#email').val('')
+        $('#userName').val('')
+        $('#password').val('')
       })
     })
 
