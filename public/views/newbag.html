@@ -9,7 +9,6 @@
   <!-- CSS  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
   <link href="../assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
@@ -29,7 +28,7 @@
             <a href="/popular">Popular</a>
           </li>
           <li>
-            <a href="#">Sell</a>
+            <a href="/sell">Sell</a>
           </li>
           <li>
             <a href="#">Account</a>
@@ -84,48 +83,50 @@
               <div class="card-content">
                 <p>Enter New Bag Info:</p>
                 <div class="form-group">
-                  <label for="bagBrand">Brand</label>
-                  <input type="text" class="form-control" id="bagBrand" placeholder="Prada, Balenciaga, Burberry, etc">
+                  <label for="name">Brand</label>
+                  <input type="text" class="form-control" id="name" placeholder="Prada, Balenciaga, Burberry, etc">
                 </div>
 
                 <div class="form-group">
-                  <label for="bagStyle">Style/Model</label>
-                  <input type="text" class="form-control" id="bagStyle" placeholder="Sling, Hobo, Clutch, etc">
+                  <label for="model">Style/Model</label>
+                  <input type="text" class="form-control" id="model" placeholder="Sling, Hobo, Clutch, etc">
                 </div>
 
                 <div class="form-group">
-                  <label for="bagPrice">Price</label>
-                  <input type="text" class="form-control" id="bagPrice" placeholder="$$$.$$">
+                  <label for="price">Price</label>
+                  <input type="text" class="form-control" id="price" placeholder="$$$.$$">
                 </div>
 
                 <div class="form-group">
-                  <label for="bagMaterial">Material</label>
-                  <input type="text" class="form-control" id="bagMaterial" placeholder="Leather, Canvas, etc">
+                  <label for="material">Material</label>
+                  <input type="text" class="form-control" id="material" placeholder="Leather, Canvas, etc">
                 </div>
 
                 <div class="form-group">
-                  <label for="bagColor">Color</label>
-                  <input type="text" class="form-control" id="bagColor">
+                  <label for="color">Color</label>
+                  <input type="text" class="form-control" id="color">
                 </div>
 
                 <div class="form-group">
-                  <label for="bagSKU">SKU #</label>
-                  <input type="text" class="form-control" id="bagSKU" placeholder="SKU #">
+                  <label for="SKU">SKU #</label>
+                  <input type="text" class="form-control" id="SKU" placeholder="SKU #">
                 </div>
 
                 <div class="form-group">
-                  <label for="bagImage">Image link</label>
-                  <input type="text" class="form-control" id="bagImage" placeholder="image link">
+                  <label for="image">Image link</label>
+                  <input type="text" class="form-control" id="image" placeholder="image link">
                 </div>
 
                 <div class="form-group">
-                  <label for="bagDescription">Description</label>
-                  <input type="textarea" class="form-control" rows = "10" cols = "30" id="bagDescription" placeholder="Enter a brief description of bag here">
+                  <label for="description">Description</label>
+                  <textarea class="form-control" width="100%" id="description" placeholder="Enter a brief description of bag here">
+                  </textarea>
+                  <!-- <input type="text" class="form-control" width = "100%" id="description" placeholder="Enter a brief description of bag here"> -->
                 </div>
-<p>
-  <br>
-                <button type="submit" id="submitBTN" class="btn btn-default buttons">
-                  <span style="font-size:12px"></span>Submit</button>
+                <p>
+                  <br>
+                  <button type="submit" id="submitBTN" class="btn btn-default buttons sell_bag">
+                    <span style="font-size:12px"></span>Submit</button>
                 </p>
               </div>
             </div>
@@ -184,9 +185,37 @@
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <!-- <script src="js/materialize.js"></script> -->
-  <!-- <script src="js/init.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+  <script>
+    $('.sell_bag').on('click', function () {
+
+      var bagObj = {
+        name: $('#name').val().trim(),
+        model: $('#model').val().trim(),
+        quantity: 1,
+        price: parseFloat($('#price').val().trim()),
+        color: $('#color').val().trim(),
+        material: $('#material').val().trim(),
+        SKU: $('#SKU').val().trim(),
+        image: $('#image').val().trim(),
+        description: $('#description').val().trim(),
+        sold: "false"
+      }
+      $.post('/api/bags', bagObj).then(function (r) {
+        alert(r.name + " added")
+        $('#name').val() = ''
+        $('#model').val() = ''
+        $('#price').val() = ''
+        $('#color').val() = ''
+        $('#material').val() = ''
+        $('#SKU').val() = ''
+        $('#image').val() = ''
+        $('#description').val() = ''
+      })
+    })
+
+  </script>
 </body>
 
 </html>
