@@ -8,6 +8,8 @@
 // Requiring our models
 var db = require("../../models");
 var Bag = require("../../models")
+
+
 // Routes
 // =============================================================
 module.exports = function (app) {
