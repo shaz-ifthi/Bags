@@ -14,7 +14,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,6 @@
   "bugs": {
     "url": "https://github.com/mgamatero/Bags/issues"
   },
-  "homepage": "https://github.com/mgamatero/Bags#readme"
+  "homepage": "https://github.com/mgamatero/Bags#readme",
+  "keywords": []
 }
