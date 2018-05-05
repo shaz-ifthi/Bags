@@ -69,3 +69,10 @@ footer.page-footer {
 .collection-item {
   border: 1px solid white;
 }
+
+
+/* newbag.html */
+.form-group {
+  width:75%;
+  display: inline;
+}

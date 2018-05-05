@@ -23,9 +23,21 @@ module.exports = function(sequelize, DataTypes){
             type:DataTypes.STRING
         },
         material:{
+            type:DataTypes.STRING
+        },
+        SKU:{
             type:DataTypes.STRING,
             allowNull: true
-        }
+        }, 
+        image:{
+            type:DataTypes.STRING,
+            allowNull: true
+        }, 
+        description:{
+            type:DataTypes.STRING,
+            allowNull: true
+        } 
+
     })
 
    

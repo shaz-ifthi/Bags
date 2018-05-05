@@ -1,29 +1,3 @@
-/* var db = require ('../../models')
-var express = require('express')
-
-module.exports = function(app){
-
-app.get('/',function(req,res){
-    Bag.findAll({}).then(function(r){
-        return res.json(r)
-        console.log(r)
-    })
-})
-
-app.post('/api/bag', function(req,res){
-    Bag.create({
-        text: req.body.text,
-        complete: req.body.complete
-        //name:"Big Mac",
-       // eaten:"N"
-    }).then(function(r) {
-        console.log(res.json(r))
-    })
-}) 
-
-}
- */
-
 // *********************************************************************************
 // api-routes.js - this file offers a set of routes for displaying and saving data to the db
 // *********************************************************************************
@@ -59,6 +33,9 @@ module.exports = function (app) {
       price: req.body.price,
       color: req.body.color,
       material: req.body.material,
+      SKU: req.body.SKU,
+      image: req.body.image,
+      description: req.body.description
     }).then(function (bag) {
       // We have access to the new bag as an argument inside of the callback function
       // res.json(bag);
