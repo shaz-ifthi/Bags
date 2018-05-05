@@ -1,7 +1,7 @@
 1. git pull
 2. git checkout -b "name of branch"
 3. start work
-4. git add -add
-5. git commit -m
+4. git add -A
+5. git commit -m "make comments here"
 6. git push origin branchname
 7. create a pull request and assign a reviewer
