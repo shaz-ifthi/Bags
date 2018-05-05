@@ -40,6 +40,10 @@ module.exports = function(sequelize, DataTypes){
         sold:{
             type:DataTypes.BOOLEAN,
             allowNull: false
+        },
+        bought_by:{
+            type:DataTypes.STRING,
+            allowNull: false
         }
 
     })
