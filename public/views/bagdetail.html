@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Collections</title>
+
+  <!-- CSS  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+  <!-- nav bar starts here -->
+  <div class="navbar-fixed">
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <ul class="left hide-on-med-and-down">
+          <li>
+            <a id="logo-container" href="/" class="left">Home</a>
+          </li>
+          <li>
+            <a href="/collections">Collections</a>
+          </li>
+          <li>
+            <a href="/popular">Popular</a>
+          </li>
+          <li>
+            <a href="/sell">Sell</a>
+          </li>
+          <li>
+            <a href="/users">Account</a>
+          </li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a href="sass.html">
+              <i class="material-icons">search</i>
+            </a>
+          </li>
+          <li>
+            <a href="sass.html">
+              <i class="material-icons">shopping_cart</i>
+            </a>
+          </li>
+          <li>
+            <a href="/users">
+              <i class="material-icons">account_circle</i>
+            </a>
+          </li>
+          <li>
+            <a class="waves-effect waves-light btn">Login</a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+  </div>
+  <!-- nav bar ends here -->
+
+  <div class="container">
+    <!-- Entire Body Starts -->
+
+    <div class="row">
+      <div class="col s12"></div>
+
+      <!-- start of bag image -->
+      <div class="col s9">
+        <img class="materialboxed" width="650" src="../assets/images/sample-1.jpg">
+
+        <!-- end of bag image -->
+      </div>
+
+      <!-- start of bag details (right column) -->
+      <div class="col s3">
+      <br><br>
+      <h5>Bag Name Here</h5>
+      <br>
+      <h6>Brand Name Here</h6>
+      <h6>Style Here</h6>
+      <h6>Color Here</h6>
+      <br>
+      <h6 id="bagDesc" >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio nam quibusdam, qui et sunt a neque, vitae numquam tenetur ut ratione praesentium! Delectus quasi explicabo aliquid ut error itaque voluptatum.</h6>
+      <br><br>
+      <a id="buy" class="waves-effect waves-light btn buyButton">Take me Home</a>
+      <br> <br>
+      <a id="resell" class="waves-effect waves-light btn buyButton">Resell Mine</a>
+
+      <!-- end of bag details (right column) -->
+      </div>
+    </div>
+
+    <!-- Entire Body Ends -->
+  </div>
+
+
+  <!-- footer starts here -->
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum velit non ea minus dignissimos laboriosam commodi.
+            Magnam reiciendis, animi tenetur laudantium iusto consequuntur ipsum fuga illum nobis aspernatur, eos nisi.</p>
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text"></h5>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Contact Us</h5>
+          <ul>
+            <li>
+              <a class="white-text" href="#!">Address</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Phone</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Twitter</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Facebook</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Instagram</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Copyright 2018
+        <a class="brown-text text-lighten-3">Locally Sourced "Cool Grandpa T-Shirts"</a>
+      </div>
+    </div>
+  </footer>
+  <!-- footer ends here -->
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- <script src="js/materialize.js"></script> -->
+  <!-- <script src="js/init.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+  <script>
+
+    $.get('/api/bags').then(function (r) {
+      if (r.length === 0) {
+        $(".collection-results").append("No bags available")
+      }
+      else {
+        for (var i = 0; i < r.length; i++) {
+          // alert(r)
+          $(".collection-results").append(
+            '<div class="col s4">\
+              <div class="card">\
+                <div class="card-image">\
+                  <img src="'+ r[i].image + '" class="hoverZoomLink">\
+                </div>\
+                <div class="card-content">'+ r[i].model + " by " + r[i].name + '<p>$' + r[i].price + '</p>\
+                <p>Material: '+ r[i].material + '</p>\
+                <p>Color: '+ r[i].color + '</p></div>\
+                </div>\
+              </div>'
+          )
+        }
+      }
+    })
+  </script>
+
+
+
+</body>
+
+</html>

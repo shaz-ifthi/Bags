@@ -90,3 +90,11 @@ body {
   height: 25%;
 }
 
+/* buy bag page */
+.buyButton {
+  width: 100%;
+}
+
+#bagDesc {
+  font-style: italic;
+}
