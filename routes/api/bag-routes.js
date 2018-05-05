@@ -35,7 +35,8 @@ module.exports = function (app) {
       material: req.body.material,
       SKU: req.body.SKU,
       image: req.body.image,
-      description: req.body.description
+      description: req.body.description,
+      sold:req.body.sold
     }).then(function (bag) {
       // We have access to the new bag as an argument inside of the callback function
       // res.json(bag);

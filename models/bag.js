@@ -36,7 +36,10 @@ module.exports = function(sequelize, DataTypes){
         description:{
             type:DataTypes.STRING,
             allowNull: true
-        } 
+        } ,
+        sold:{
+            type:DataTypes.BOOLEAN
+        }
 
     })
 
