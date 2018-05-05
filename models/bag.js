@@ -38,7 +38,8 @@ module.exports = function(sequelize, DataTypes){
             allowNull: true
         } ,
         sold:{
-            type:DataTypes.BOOLEAN
+            type:DataTypes.BOOLEAN,
+            allowNull: false
         }
 
     })
