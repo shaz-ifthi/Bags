@@ -16,10 +16,10 @@ module.exports = function(sequelize, DataTypes){
         type: DataTypes.INTEGER,
         
     },
-    seller:{
-        type: DataTypes.BOOLEAN,
-        allowNull: true
-    }
+    // itemsPurchased:{
+    //     type: DataTypes.STRING,
+    //     allowNull: true
+    // }
     
 })
 

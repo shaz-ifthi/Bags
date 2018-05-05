@@ -196,6 +196,7 @@
     </footer>
     <!-- footer ends here -->
 
+    
 
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -203,7 +204,8 @@
     <!-- <script src="js/init.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-    <script>
+    <script> 
+
 
       $.get('/api/bags').then(function (r) {
         if (r.length === 0) {
@@ -216,9 +218,9 @@
               '<div class="col s4">\
               <div class="card">\
                 <div class="card-image">\
-                  <img src="'+r[i].image+'" class="hoverZoomLink">\
+                  <img src="'+ r[i].image + '" class="hoverZoomLink">\
                 </div>\
-                <div class="card-content">'+ r[i].model+" by "+r[i].name + '<p>$' + r[i].price + '</p>\
+                <div class="card-content">'+ r[i].model + " by " + r[i].name + '<p>$' + r[i].price + '</p>\
                 <p>Material: '+ r[i].material + '</p>\
                 <p>Color: '+ r[i].color + '</p></div>\
                 </div>\
@@ -228,7 +230,7 @@
         }
       })
 
-      
+
     </script>
 
 

@@ -8,6 +8,8 @@
 // Requiring our models
 var db = require("../../models");
 var Bag = require("../../models")
+
+
 // Routes
 // =============================================================
 module.exports = function (app) {
@@ -21,6 +23,7 @@ module.exports = function (app) {
     });
   });
 
+  
   // POST route for saving a new bag
   app.post("/api/bags", function (req, res) {
     // create takes an argument of an object describing the item we want to
@@ -36,7 +39,7 @@ module.exports = function (app) {
       SKU: req.body.SKU,
       image: req.body.image,
       description: req.body.description,
-      sold:req.body.sold
+      sold: req.body.sold
     }).then(function (bag) {
       // We have access to the new bag as an argument inside of the callback function
       // res.json(bag);
@@ -77,7 +80,7 @@ module.exports = function (app) {
     }, {
         where: {
           name: req.body.name
-        
+
         }
       }).then(function (bag) {
         res.json(bag);

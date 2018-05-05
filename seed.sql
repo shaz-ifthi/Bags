@@ -17,4 +17,25 @@ INSERT INTO bags
 SET id="", name="UCI Bootcamp Student Bag", model="Universal Plastic", quantity=1, price=00.10, color="White", material="Plastic", SKU = "No one cares", image="https://images-na.ssl-images-amazon.com/images/I/81sbXw5yIAL._SY355_.jpg", description= "Hang in there buddy.", sold = "FALSE";
 
 
-SELECT * FROM bags_db.bags;
+-- SELECT * FROM bags_db.bags;
+
+-- use bags_db.user;
+
+
+INSERT INTO users
+SET id="", name="Alvin Ayusa", email="alvin@something.com", password ="word", credits=10000; 
+-- itemsPurchased = "true";
+
+INSERT INTO users 
+SET id="", name="Mike G", email="mike@something.com", password ="word", credits=10000;
+-- itemsPurchased = "true";
+
+INSERT INTO users
+SET id="", name="Shaz Ifthi", email="shaz@something.com", password ="word", credits=10000; 
+-- itemsPurchased = "true";
+
+INSERT INTO users
+SET id="", name="Prasangi M", email="prasangi@something.com", password ="word", credits=10000; 
+-- itemsPurchased = "true";
+
+-- SELECT * FROM bags_db.user;

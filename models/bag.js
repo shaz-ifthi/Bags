@@ -1,44 +1,48 @@
 /* var Sequelize = require('sequelize')
  */
-module.exports = function(sequelize, DataTypes){
-    var bag = sequelize.define('bag',{
+module.exports = function (sequelize, DataTypes) {
+    var bag = sequelize.define('bag', {
         name: {
             type: DataTypes.STRING,
             allowNull: true
         },
-        model:{
+        model: {
             type: DataTypes.STRING,
             allowNull: true
         },
-        quantity:{
-            type:DataTypes.INTEGER,
+        quantity: {
+            type: DataTypes.INTEGER,
             allowNull: true
         },
-        price:{
-            type:DataTypes.FLOAT,
+        price: {
+            type: DataTypes.FLOAT,
             allowNull: true,
             defaultValue: 0.0
         },
-        color:{
-            type:DataTypes.STRING
+        color: {
+            type: DataTypes.STRING
         },
-        material:{
-            type:DataTypes.STRING
+        material: {
+            type: DataTypes.STRING
         },
-        SKU:{
-            type:DataTypes.STRING,
+        SKU: {
+            type: DataTypes.STRING,
             allowNull: true
-        }, 
-        image:{
-            type:DataTypes.STRING,
+        },
+        image: {
+            type: DataTypes.STRING,
             allowNull: true
-        }, 
-        description:{
-            type:DataTypes.STRING,
+        },
+        description: {
+            type: DataTypes.STRING,
             allowNull: true
-        } ,
-        sold:{
-            type:DataTypes.BOOLEAN,
+        },
+        sold: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        sold: {
+            type: DataTypes.BOOLEAN,
             allowNull: false
         },
         bought_by:{
@@ -48,7 +52,7 @@ module.exports = function(sequelize, DataTypes){
 
     })
 
-   
+
     return bag;
     //return user;
     //bag.sync()
