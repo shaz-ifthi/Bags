@@ -69,55 +69,43 @@
         <!-- Note that "m4 l3" was added -->
         <ul class="collection with-header">
           <li class="collection-header">
-            <h4>STYLE</h4>
+            <h6>Filter by Designer</h6>
           </li>
-          <li class="collection-item">Clutch</li>
-          <li class="collection-item">Evening</li>
-          <li class="collection-item">Tote</li>
-          <li class="collection-item">Shoulder</li>
-          <li class="collection-item">Other</li>
-          <li class="collection-item">All</li>
-          <!-- <li class="collection-item">Hobo</li>
-          <li class="collection-item">Satchel</li>
-          <li class="collection-item">Sling</li>
-          <li class="collection-item">Top Handle</li>
-          <li class="collection-item">Wallet</li>
-          <li class="collection-item">Others</li> -->
+          <div class="collection">
+            <a href="#!" class="collection-item active">All</a>
+            <a href="#" class="collection-item">Chanel</a>
+            <a href="#!" class="collection-item">Hermes</a>
+            <a href="#!" class="collection-item">Louis Vuitton</a>
+            <a href="#!" class="collection-item">Valentino</a>
+            <a href="#!" class="collection-item">Other</a>
+          </div>
         </ul>
+
         <ul class="collection with-header">
           <li class="collection-header">
-            <h4>Designer</h4>
+            <h6>Filter by Material</h6>
           </li>
-          <li class="collection-item">Channel</li>
-          <li class="collection-item">Hermes</li>
-          <li class="collection-item">LV</li>
-          <li class="collection-item">Valentino</li>
-          <li class="collection-item">Other</li>
-          <li class="collection-item">All</li>
-          <!-- <li class="collection-item">Balenciaga</li>
-          <li class="collection-item">Burberry</li>
-          <li class="collection-item">Celine</li>
-          <li class="collection-item">Chloe</li>
-          <li class="collection-item">Prada</li>
-          <li class="collection-item">YSL</li>
-          <li class="collection-item">Others</li> -->
+          <div class="collection">
+            <a href="#!" class="collection-item active">All</a>
+            <a href="#" class="collection-item">Leather</a>
+            <a href="#!" class="collection-item">Canvas</a>
+            <a href="#!" class="collection-item">Nylon</a>
+            <a href="#!" class="collection-item">Other</a>
+          </div>
         </ul>
+
         <ul class="collection with-header">
           <li class="collection-header">
-            <h4>Color</h4>
+            <h6>Filter by Color</h6>
           </li>
-          <li class="collection-item">Black</li>
-          <li class="collection-item">Blue</li>
-          <li class="collection-item">Brown</li>
-          <li class="collection-item">Red</li>
-          <li class="collection-item">Other</li>
-          <li class="collection-item">All</li>
-          <!-- <li class="collection-item">Gray</li>
-          <li class="collection-item">Green</li>
-          <li class="collection-item">Neutral</li>
-          <li class="collection-item">Orange</li>
-          <li class="collection-item">White</li>
-          <li class="collection-item">Others</li> -->
+          <div class="collection">
+            <a href="#!" class="collection-item active">All</a>
+            <a href="#" class="collection-item">Black</a>
+            <a href="#!" class="collection-item">Blue</a>
+            <a href="#!" class="collection-item">Brown</a>
+            <a href="#!" class="collection-item">Red</a>
+            <a href="#!" class="collection-item">Other</a>
+          </div>
         </ul>
       </div>
       <!-- Filter Column Ends -->
@@ -196,7 +184,7 @@
     </footer>
     <!-- footer ends here -->
 
-    
+
 
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -213,24 +201,29 @@
         }
         else {
           for (var i = 0; i < r.length; i++) {
-            // alert(r)
+            
             $(".collection-results").append(
               '<div class="col s4">\
-              <div class="card">\
+              <div class="card" index="'+i+'">\
                 <div class="card-image">\
-                  <img src="'+ r[i].image + '" class="hoverZoomLink">\
+                  <img src="'+ r[i].image + '" class="bag_image hoverZoomLink">\
                 </div>\
                 <div class="card-content">'+ r[i].model + " by " + r[i].name + '<p>$' + r[i].price + '</p>\
-                <p>Material: '+ r[i].material + '</p>\
-                <p>Color: '+ r[i].color + '</p></div>\
+                <p>'+ r[i].material + ", "+r[i].color+'</p>\
                 </div>\
               </div>'
             )
+            
           }
         }
+
+        $('.card').on('click',function(){
+          var x = r[$(this).attr("index")].name+", "+r[$(this).attr("index")].material
+          alert(x)
+        })
       })
 
-
+    
     </script>
 
 

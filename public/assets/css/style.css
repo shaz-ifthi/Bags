@@ -68,6 +68,7 @@ footer.page-footer {
 
 .collection-item {
   border: 1px solid white;
+  font-size: 75%;
 }
 
 
@@ -76,9 +77,9 @@ footer.page-footer {
   display: inline;
 }
 
-body {
-  color: #287fa1;
-}
+.card{
+  height:250px;
+  }
 
 .card-image {
   margin: auto;
@@ -87,7 +88,11 @@ body {
 }
 
 .card-image img {
-  height: 25%;
+    padding-top: 25%;
+}
+
+.card-content {
+  font-size:75%;
 }
 
 /* buy bag page */
