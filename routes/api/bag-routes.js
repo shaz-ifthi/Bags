@@ -39,10 +39,11 @@ module.exports = function (app) {
       SKU: req.body.SKU,
       image: req.body.image,
       description: req.body.description,
-      sold: req.body.sold
+      sold: req.body.sold,
+      bought_by:req.body.bought_by
     }).then(function (bag) {
       // We have access to the new bag as an argument inside of the callback function
-      // res.json(bag);
+      res.json(bag);
     })
       .catch(function (err) {
         // Whenever a validation or flag fails, an error is thrown
