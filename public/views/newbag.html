@@ -216,7 +216,8 @@
         SKU: $('#SKU').val().trim(),
         image: $('#image').val().trim(),
         description: $('#description').val().trim(),
-        sold: "false"
+        sold: "false",
+        bought_by:"x"
       }
       $.post('/api/bags', bagObj).then(function (r) {
         alert(r.name + " added")
