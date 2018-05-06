@@ -72,12 +72,12 @@
             <h6>Filter by Designer</h6>
           </li>
           <div class="collection">
-            <a href="#!" class="collection-item active">All</a>
-            <a href="#" class="collection-item">Chanel</a>
-            <a href="#!" class="collection-item">Hermes</a>
-            <a href="#!" class="collection-item">Louis Vuitton</a>
-            <a href="#!" class="collection-item">Prada</a>
-            <a href="#!" class="collection-item">Other</a>
+            <a href="#!" class="designer_filter collection-item active">All</a>
+            <a href="#" class="designer_filter collection-item">Chanel</a>
+            <a href="#!" class="designer_filter collection-item">Hermes</a>
+            <a href="#!" class="designer_filter collection-item">Louis Vuitton</a>
+            <a href="#!" class="designer_filter collection-item">Prada</a>
+            <a href="#!" class="designer_filter collection-item">Other</a>
           </div>
         </ul>
 
@@ -86,11 +86,11 @@
             <h6>Filter by Material</h6>
           </li>
           <div class="collection">
-            <a href="#!" class="collection-item active">All</a>
-            <a href="#" class="collection-item">Leather</a>
-            <a href="#!" class="collection-item">Canvas</a>
-            <a href="#!" class="collection-item">Nylon</a>
-            <a href="#!" class="collection-item">Other</a>
+            <a href="#!" class="material_filter collection-item active">All</a>
+            <a href="#" class="material_filter collection-item">Leather</a>
+            <a href="#!" class="material_filter collection-item">Canvas</a>
+            <a href="#!" class="material_filter collection-item">Nylon</a>
+            <a href="#!" class="material_filter collection-item">Other</a>
           </div>
         </ul>
 
@@ -99,12 +99,12 @@
             <h6>Filter by Color</h6>
           </li>
           <div class="collection">
-            <a href="#!" class="collection-item active">All</a>
-            <a href="#" class="collection-item">Black</a>
-            <a href="#!" class="collection-item">Blue</a>
-            <a href="#!" class="collection-item">Brown</a>
-            <a href="#!" class="collection-item">Red</a>
-            <a href="#!" class="collection-item">Other</a>
+            <a href="#!" class="color_filter collection-item active">All</a>
+            <a href="#" class="color_filter collection-item">Black</a>
+            <a href="#!" class="color_filter collection-item">Blue</a>
+            <a href="#!" class="color_filter collection-item">Brown</a>
+            <a href="#!" class="color_filter collection-item">Red</a>
+            <a href="#!" class="color_filter collection-item">Other</a>
           </div>
         </ul>
       </div>
@@ -194,6 +194,19 @@
 
     <script> 
 
+    $(".designer_filter").on('click',function(){
+      $(".designer_filter").removeClass("active")
+      $(this).addClass("active")
+    })
+    $(".material_filter").on('click',function(){
+      $(".material_filter").removeClass("active")
+      $(this).addClass("active")
+    })
+    $(".color_filter").on('click',function(){
+      $(".color_filter").removeClass("active")
+      $(this).addClass("active")
+    })
+
 
       $.get('/api/bags').then(function (r) {
         if (r.length === 0) {
@@ -201,29 +214,27 @@
         }
         else {
           for (var i = 0; i < r.length; i++) {
-            
+
             $(".collection-results").append(
               '<div class="col s4">\
-              <div class="card" index="'+i+'">\
+              <div class="card" index="'+ i + '">\
                 <div class="card-image">\
                   <img src="'+ r[i].image + '" class="bag_image hoverZoomLink">\
                 </div>\
                 <div class="card-content">'+ r[i].model + " by " + r[i].name + '<p>$' + r[i].price + '</p>\
-                <p>'+ r[i].material + ", "+r[i].color+'</p>\
+                <p>'+ r[i].material + ", " + r[i].color + '</p>\
                 </div>\
               </div>'
             )
-            
           }
         }
-
-        $('.card').on('click',function(){
-          var x = r[$(this).attr("index")].name+", "+r[$(this).attr("index")].material
+        $('.card').on('click', function () {
+          var x = r[$(this).attr("index")].name + ", " + r[$(this).attr("index")].material
           alert(x)
         })
       })
 
-    
+
     </script>
 
 
