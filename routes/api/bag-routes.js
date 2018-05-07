@@ -13,7 +13,6 @@ var Bag = require("../../models")
 // Routes
 // =============================================================
 module.exports = function (app) {
-
   // GET route for getting all of the bags
   app.get('/api/bags', function (req, res) {
     // findAll returns all entries for a table when used with no options
@@ -22,6 +21,21 @@ module.exports = function (app) {
       res.json(bag);
     });
 });
+
+  app.get('/api/bags/:designer', function (req, res) {
+    // findAll returns all entries for a table when used with no options
+    db.bag.findAll({
+        where: {
+          name: 'Prada'
+        }
+    }).then(function (bag) {
+      // We have access to the bags as an argument inside of the callback function
+      res.json(bag);
+    });
+});
+
+
+
 
 // // GET route for getting bags with a filter
 // app.get("/api/bags/:material", function (req, res) {
