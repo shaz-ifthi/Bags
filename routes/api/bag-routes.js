@@ -22,11 +22,24 @@ module.exports = function (app) {
     });
 });
 
-  app.get('/api/bags/:designer', function (req, res) {
+  app.get('/api/bags/:filter', function (req, res) {
     // findAll returns all entries for a table when used with no options
     db.bag.findAll({
         where: {
-          name: 'Prada'
+          $or: [
+            {
+              name:
+              { $eq: req.params.filter}
+            },
+            {
+              material:
+              { $eq: req.params.filter}
+            },
+            {
+              color:
+              { $eq: req.params.filter}
+            }
+          ]
         }
     }).then(function (bag) {
       // We have access to the bags as an argument inside of the callback function
