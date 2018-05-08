@@ -197,32 +197,60 @@
       var designer = "Louis Vuitton"
       var material = "All"
       var color = "All"
+      var currentIndex = ""
+      var currentName = ""
            
+      renderBagsToScreen("/api/bags")
+
       $(".designer_filter").on('click', function () {
         $(".designer_filter").removeClass("active")
         $(this).addClass("active")
         designer = $(this).attr("value")
-        var path = '/api/bags/' + designer
+        var path = ''
+        
+        if (designer==="All"){
+          path = 'api/bags'
+        }
+        else {
+          var path = '/api/bags/' + designer
+        }
         renderBagsToScreen(path)
       })
+
       $(".material_filter").on('click', function () {
         $(".material_filter").removeClass("active")
         $(this).addClass("active")
         material = $(this).attr("value")
-        var path = '/api/bags/' + material
+        var path = ''
+        
+        if (material==="All"){
+          path = 'api/bags'
+        }
+        else {
+          var path = '/api/bags/' + material
+        }
         renderBagsToScreen(path)
       })
+
       $(".color_filter").on('click', function () {
         $(".color_filter").removeClass("active")
         $(this).addClass("active")
         color = $(this).attr("value")
-        var path = '/api/bags/' + color
+        var path = ''
+        
+        if (color==="All"){
+          path = 'api/bags'
+        }
+        else {
+          var path = '/api/bags/' + color
+        }
         renderBagsToScreen(path)
       })
     
 
 
-      //testing designer route
+      //render bags to screen, based on routePath.  Dependent on the click action from
+      //designer, material, and color filters
       function renderBagsToScreen(routePath) {
         $(".collection-results").empty()
         $.get(routePath).then(function (r) {
@@ -245,18 +273,16 @@
               )
             }
           }
+
+          $('.card_bag').on('click', function () {
+            var x = r[$(this).attr("index")].name + ", " + r[$(this).attr("index")].material
+            alert(x)
+        
+          })
         })
       }
 
-
-
-        $('.card').on('click', function () {
-          var x = r[$(this).attr("index")].name + ", " + r[$(this).attr("index")].material
-          alert(x)
-        })
       
-
-
     </script>
 
 
