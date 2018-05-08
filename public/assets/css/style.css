@@ -76,8 +76,11 @@ footer.page-footer {
 .form-group {
   display: inline;
 }
+/* -------- */
 
-.card{
+
+/*collection*/
+.card_bag {
   height:250px;
   }
 
@@ -91,7 +94,11 @@ footer.page-footer {
     padding-top: 25%;
 }
 
-.card-content {
+/* .card-content {
+  font-size:10%;
+} */
+
+.card_bag-content {
   font-size:75%;
 }
 
