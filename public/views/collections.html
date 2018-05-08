@@ -193,38 +193,47 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
     <script> 
-//GLOBALS
-var designer = "All"
-var material = "All"
-var color = "All"
+      //GLOBALS
+      var designer = "Louis Vuitton"
+      var material = "All"
+      var color = "All"
+           
+      $(".designer_filter").on('click', function () {
+        $(".designer_filter").removeClass("active")
+        $(this).addClass("active")
+        designer = $(this).attr("value")
+        var path = '/api/bags/' + designer
+        renderBagsToScreen(path)
+      })
+      $(".material_filter").on('click', function () {
+        $(".material_filter").removeClass("active")
+        $(this).addClass("active")
+        material = $(this).attr("value")
+        var path = '/api/bags/' + material
+        renderBagsToScreen(path)
+      })
+      $(".color_filter").on('click', function () {
+        $(".color_filter").removeClass("active")
+        $(this).addClass("active")
+        color = $(this).attr("value")
+        var path = '/api/bags/' + color
+        renderBagsToScreen(path)
+      })
+    
 
-    $(".designer_filter").on('click',function(){
-      $(".designer_filter").removeClass("active")
-      designer = $(this).addClass("active")
-      console.log($(this).attr("value"))
-    })
-    $(".material_filter").on('click',function(){
-      $(".material_filter").removeClass("active")
-      $(this).addClass("active")
-      console.log($(this).attr("value"))
-    })
-    $(".color_filter").on('click',function(){
-      $(".color_filter").removeClass("active")
-      $(this).addClass("active")
-      console.log($(this).attr("value"))
-    })
 
+      //testing designer route
+      function renderBagsToScreen(routePath) {
+        $(".collection-results").empty()
+        $.get(routePath).then(function (r) {
+          if (r.length === 0) {
+            $(".collection-results").append("No bags available")
+          }
+          else {
+            for (var i = 0; i < r.length; i++) {
 
-//testing designer route
-      $.get('/api/bags').then(function (r) {
-        if (r.length === 0) {
-          $(".collection-results").append("No bags available")
-        }
-        else {
-          for (var i = 0; i < r.length; i++) {
-
-            $(".collection-results").append(
-              '<div class="col s4">\
+              $(".collection-results").append(
+                '<div class="col s4">\
               <div class="card" index="'+ i + '">\
                 <div class="card-image">\
                   <img src="'+ r[i].image + '" class="bag_image hoverZoomLink">\
@@ -233,16 +242,19 @@ var color = "All"
                 <p>'+ r[i].material + ", " + r[i].color + '</p>\
                 </div>\
               </div>'
-            )
+              )
+            }
           }
-        }
+        })
+      }
 
-        
+
+
         $('.card').on('click', function () {
           var x = r[$(this).attr("index")].name + ", " + r[$(this).attr("index")].material
           alert(x)
         })
-      })
+      
 
 
     </script>
