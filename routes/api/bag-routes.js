@@ -13,17 +13,78 @@ var Bag = require("../../models")
 // Routes
 // =============================================================
 module.exports = function (app) {
-  // GET route for getting all of the bags
+
+  // ---------
   app.get('/api/bags', function (req, res) {
-    // findAll returns all entries for a table when used with no options
+    // This route is used to return ALL the bags - Working
     db.bag.findAll({}).then(function (bag) {
       // We have access to the bags as an argument inside of the callback function
       res.json(bag);
     });
   });
 
+  // ------------------
+  app.get('/api/bags/other/:filter', function (req, res) {
+    //This route is used if filter "Other" is picked.  Values that are NOT the hardcoded
+    //values are returned.  To be redacted  - Working
+    db.bag.findAll({
+      where: {
+        $and: [
+          {
+            name:
+              { $ne: 'Prada' },
+          },
+          {
+            name:
+              { $ne: 'Chanel' },
+          },
+          {
+            name:
+              { $ne: 'Louis Vuitton' },
+          },
+          {
+            name:
+              { $ne: 'Hermes' },
+          },
+          {
+            material:
+              { $ne: 'Leather' },
+          },
+          {
+            material:
+              { $ne: 'Canvas' },
+          },
+          {
+            material:
+              { $ne: 'Nylon' },
+          },
+          {
+            color:
+              { $ne: 'Black' },
+          },
+          {
+            material:
+              { $ne: 'Blue' },
+          },
+          {
+            material:
+              { $ne: 'Brown' },
+          },
+          {
+            material:
+              { $ne: 'Red' }
+          }
+        ]
+      }
+    }).then(function (bag) {
+     res.json(bag);
+    });
+  });
+
+
+  // ----------------
   app.get('/api/bags/:filter', function (req, res) {
-    // findAll returns all entries for a table when used with no options
+    // This route returns entries if filter is picked  - Working
     db.bag.findAll({
       where: {
         $or: [
@@ -42,34 +103,15 @@ module.exports = function (app) {
         ]
       }
     }).then(function (bag) {
-      // We have access to the bags as an argument inside of the callback function
       res.json(bag);
     });
   });
 
 
-
-
-  // // GET route for getting bags with a filter
-  // app.get("/api/bags/:material", function (req, res) {
-  //   // findAll returns all entries for a table when used with no options
-  //   db.bag.findAll({
-  //     where: {
-  //       material: req.params.material
-  //     }
-  //   }).then(function (bag) {
-  //     // We have access to the bags as an argument inside of the callback function
-  //     res.json(bag);
-  //   });
-  // });
-
-
-  // POST route for saving a new bag
-  app.post("/api/bags", function (req, res) {
-    // create takes an argument of an object describing the item we want to
-    // insert into our table. In this case we just we pass in an object with a text
-    // and complete property (req.body)
-    db.bag.create({
+//-----------------------
+app.post("/api/bags", function (req, res) {
+  // This route is used to add to bags_db.bags when using the sell form.  - Working
+      db.bag.create({
       name: req.body.name,
       model: req.body.model,
       quantity: req.body.quantity,
