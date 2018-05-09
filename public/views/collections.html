@@ -262,7 +262,7 @@
 
               $(".collection-results").append(
                 '<div class="col s4">\
-              <div class="card card_bag" index="'+ i + '">\
+              <div class="card card_bag" data-index="'+i+ '" index="'+ i + '">\
                 <div class="card-image">\
                   <img src="'+ r[i].image + '" class="bag_image hoverZoomLink">\
                 </div>\
@@ -275,9 +275,13 @@
           }
 
           $('.card_bag').on('click', function () {
-            var x = r[$(this).attr("index")].name + ", " + r[$(this).attr("index")].material
-            alert(x)
-        
+           var x = r[$(this).attr("index")].name + ", " + r[$(this).attr("index")].material
+          alert(x)
+            alert("ID in database is in index: "+r[$(this).attr("index")].id )
+
+           //$.get("/buy/"+r[$(this).attr("index")].id)
+          //  $.post("/api/bags/buy/"+r[$(this).attr("index")].id)
+            
           })
         })
       }
