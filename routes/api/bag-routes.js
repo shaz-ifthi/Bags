@@ -20,116 +20,144 @@ module.exports = function (app) {
       // We have access to the bags as an argument inside of the callback function
       res.json(bag);
     });
-});
+  });
 
   app.get('/api/bags/:filter', function (req, res) {
     // findAll returns all entries for a table when used with no options
     db.bag.findAll({
-        where: {
-          $or: [
-            {
-              name:
-              { $eq: req.params.filter}
-            },
-            {
-              material:
-              { $eq: req.params.filter}
-            },
-            {
-              color:
-              { $eq: req.params.filter}
-            }
-          ]
-        }
+      where: {
+        $or: [
+          {
+            name:
+              { $eq: req.params.filter }
+          },
+          {
+            material:
+              { $eq: req.params.filter }
+          },
+          {
+            color:
+              { $eq: req.params.filter }
+          }
+        ]
+      }
     }).then(function (bag) {
       // We have access to the bags as an argument inside of the callback function
       res.json(bag);
     });
-});
-
-
-
-
-// // GET route for getting bags with a filter
-// app.get("/api/bags/:material", function (req, res) {
-//   // findAll returns all entries for a table when used with no options
-//   db.bag.findAll({
-//     where: {
-//       material: req.params.material
-//     }
-//   }).then(function (bag) {
-//     // We have access to the bags as an argument inside of the callback function
-//     res.json(bag);
-//   });
-// });
-
-
-// POST route for saving a new bag
-app.post("/api/bags", function (req, res) {
-  // create takes an argument of an object describing the item we want to
-  // insert into our table. In this case we just we pass in an object with a text
-  // and complete property (req.body)
-  db.bag.create({
-    name: req.body.name,
-    model: req.body.model,
-    quantity: req.body.quantity,
-    price: req.body.price,
-    color: req.body.color,
-    material: req.body.material,
-    SKU: req.body.SKU,
-    image: req.body.image,
-    description: req.body.description,
-    sold: req.body.sold,
-    bought_by: req.body.bought_by
-  }).then(function (bag) {
-    // We have access to the new bag as an argument inside of the callback function
-    res.json(bag);
-  })
-    .catch(function (err) {
-      // Whenever a validation or flag fails, an error is thrown
-      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-      res.json(err);
-    });
-});
-
-// DELETE route for deleting bags. We can get the id of the bag to be deleted from
-// req.params.id
-app.delete("/api/bags", function (req, res) {
-  // We just have to specify which bag we want to destroy with "where"
-  db.bag.destroy({
-    where: {
-      name: req.body.name
-    }
-  }).then(function (bag) {
-    res.json(bag);
   });
 
-});
 
-// PUT route for updating bagss. We can get the updated bag data from req.body
-app.put("/api/bags", function (req, res) {
 
-  // Update takes in an object describing the properties we want to update, and
-  // we use where to describe which objects we want to update
-  db.bag.update({
-    name: req.body.name,
-    model: req.body.model,
-    quantity: req.body.quantity,
-    price: req.body.price,
-    color: req.body.color,
-    material: req.body.material
-  }, {
-      where: {
-        name: req.body.name
 
-      }
+  // // GET route for getting bags with a filter
+  // app.get("/api/bags/:material", function (req, res) {
+  //   // findAll returns all entries for a table when used with no options
+  //   db.bag.findAll({
+  //     where: {
+  //       material: req.params.material
+  //     }
+  //   }).then(function (bag) {
+  //     // We have access to the bags as an argument inside of the callback function
+  //     res.json(bag);
+  //   });
+  // });
+
+
+  // POST route for saving a new bag
+  app.post("/api/bags", function (req, res) {
+    // create takes an argument of an object describing the item we want to
+    // insert into our table. In this case we just we pass in an object with a text
+    // and complete property (req.body)
+    db.bag.create({
+      name: req.body.name,
+      model: req.body.model,
+      quantity: req.body.quantity,
+      price: req.body.price,
+      color: req.body.color,
+      material: req.body.material,
+      SKU: req.body.SKU,
+      image: req.body.image,
+      description: req.body.description,
+      sold: req.body.sold,
+      bought_by: req.body.bought_by
     }).then(function (bag) {
+      // We have access to the new bag as an argument inside of the callback function
       res.json(bag);
     })
-    .catch(function (err) {
-      // Whenever a validation or flag fails, an error is thrown
-      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-      res.json(err);
+      .catch(function (err) {
+        // Whenever a validation or flag fails, an error is thrown
+        // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+        res.json(err);
+      });
+  });
+
+  // GET route for getting 1 bag from DB. Used by /Buy
+  app.get("/api/bags/buy/:index", function (req, res) {
+    db.bag.findAll({
+      where: {
+        $or: [
+          {
+            name:
+              { $eq: req.params.filter }
+          },
+          {
+            material:
+              { $eq: req.params.filter }
+          },
+          {
+            color:
+              { $eq: req.params.filter }
+          }
+        ]
+      }
+    }).then(function (bag) {
+      // We have access to the bags as an argument inside of the callback function
+      res.json(bag);
     });
-});
-};
+
+
+
+
+    // DELETE route for deleting bags. We can get the id of the bag to be deleted from
+    // req.params.id
+    app.delete("/api/bags", function (req, res) {
+      // We just have to specify which bag we want to destroy with "where"
+      db.bag.destroy({
+        where: {
+          name: req.body.name
+        }
+      }).then(function (bag) {
+        res.json(bag);
+      });
+
+    });
+
+    // PUT route for updating bagss. We can get the updated bag data from req.body
+    app.put("/api/bags", function (req, res) {
+
+      // Update takes in an object describing the properties we want to update, and
+      // we use where to describe which objects we want to update
+      db.bag.update({
+        name: req.body.name,
+        model: req.body.model,
+        quantity: req.body.quantity,
+        price: req.body.price,
+        color: req.body.color,
+        material: req.body.material
+      }, {
+          where: {
+            name: req.body.name
+
+          }
+        }).then(function (bag) {
+          res.json(bag);
+        })
+        .catch(function (err) {
+          // Whenever a validation or flag fails, an error is thrown
+          // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+          res.json(err);
+        });
+    });
+  });
+}
