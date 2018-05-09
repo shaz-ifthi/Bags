@@ -6,6 +6,58 @@
  * Made By MaterializeCSS.com
  */
 
+ /* collections page stylesheets */
+
+/* newbag.html */
+.form-group {
+  display: inline;
+}
+/* -------- */
+
+
+/*collection*/
+.card_bag {
+  height:250px;
+  }
+
+.card-image {
+  margin: auto;
+  width: 40%;
+  height: 40%;
+}
+
+.card-image img {
+    padding-top: 25%;
+}
+
+.collection {
+  border: 1px solid white;
+}
+
+.collection-item {
+  border: 1px solid white;
+  font-size: 75%;
+}
+
+#collectionColumn {
+  padding-top: 50px;
+}
+
+.card_bag-content {
+  font-size:75%;
+}
+
+/* buy bag page */
+.buyButton {
+  width: 100%;
+}
+
+#bagDesc {
+  font-style: italic;
+}
+
+/* =========================== */
+/* built in materialize css */
 nav ul a,
 nav .brand-logo {
   color: #444;
@@ -60,53 +112,3 @@ footer.page-footer {
   margin: 0;
 }
 
-/* collections page stylesheets */
-
-.collection {
-  border: 1px solid white;
-}
-
-.collection-item {
-  border: 1px solid white;
-  font-size: 75%;
-}
-
-
-/* newbag.html */
-.form-group {
-  display: inline;
-}
-/* -------- */
-
-
-/*collection*/
-.card_bag {
-  height:250px;
-  }
-
-.card-image {
-  margin: auto;
-  width: 40%;
-  height: 40%;
-}
-
-.card-image img {
-    padding-top: 25%;
-}
-
-/* .card-content {
-  font-size:10%;
-} */
-
-.card_bag-content {
-  font-size:75%;
-}
-
-/* buy bag page */
-.buyButton {
-  width: 100%;
-}
-
-#bagDesc {
-  font-style: italic;
-}
