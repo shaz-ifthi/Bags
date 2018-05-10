@@ -68,9 +68,9 @@
 
       <!-- start of bag image -->
       <div class="col s9">
-        
+
         <img src="" class="bImage materialboxed" width="450">
-        
+
         <!-- end of bag image -->
       </div>
 
@@ -83,16 +83,32 @@
         <h6 class="bModel"></h6>
         <h6 class="bStyle"></h6>
         <h6 class="bColor"></h6>
+        <h6 class="bPrice"></h6>
         <br>
         <h6 id="bagDesc"></h6>
         <br>
         <br>
-        <a id="buy" class="waves-effect waves-light btn buyButton">Take me Home</a>
+        <a id="buyBag" class="waves-effect waves-light btn buyButton">Buy</a>
         <br>
         <br>
-        <a id="resell" class="waves-effect waves-light btn buyButton">Resell Mine</a>
+        <a id="resellBag" class="waves-effect waves-light btn buyButton">Resell Mine</a>
+       
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Purchase Page</h4>
+            <p>You are about to purchase:</p>
+            <span id="modalBagDetails"></span>
 
+
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="purhaseFromModal">Purchase</a>
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="Cancel">Cancel</a>
+          </div>
+        </div>  
         <!-- end of bag details (right column) -->
+       
       </div>
     </div>
 
@@ -147,29 +163,42 @@
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <!-- <script src="js/materialize.js"></script> -->
-  <!-- <script src="js/init.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
   <script>
-    var getId = localStorage.getItem("BagIndexToBuy")
-    var id = getId - 1
-    renderDetailsToScreen("/api/bags",id)
+    //initialize all modals
+    $('.modal').modal();
 
-    function renderDetailsToScreen(routePath,id) {
-      
-        $.get(routePath).then(function (r) {
-              $(".bName").append(r[id].name)
-              $(".bModel").append(r[id].model)
-              $(".bStyle").append(r[id].style)
-              $(".bColor").append(r[id].color)
-              $("#bagDesc").append(r[id].description)
-              
-              $(".bImage").attr("src",r[id].image);
-              
-        })
+    var getId = localStorage.getItem("BagIndexToBuy")
+    var id = parseInt(getId)
+    renderDetailsToScreen("/api/bags", id)
+
+    function renderDetailsToScreen(routePath, id) {
+      //This function returns all bags in db_bags.bag.  Then, it "filters" based on ID 
+      //on what to show on the page
+      $.get(routePath).then(function (r) {
+        var currentBagIndex = 0
+        for (var i = 0; i < r.length; i++) {
+          if (r[i].id === id) {
+            currentBagIndex = i
+            $(".bName").append(r[i].name)
+            $(".bModel").append(r[i].model)
+            $(".bStyle").append(r[i].style)
+            $(".bColor").append(r[i].color)
+            $(".bPrice").append("$"+r[i].price)
+            $("#bagDesc").append(r[i].description)
+            $(".bImage").attr("src", r[i].image);
+            break
+          }
         }
-    
+        $('#buyBag').on('click',function(){
+            $('#modal1').modal('open');
+            $()
+        })
+      })
+    }
+
+
   </script>
 
 
