@@ -134,8 +134,13 @@
         <div class="row">
           <div class="col l6 s12">
             <h5 class="white-text">Company Bio</h5>
-            <p class="grey-text text-lighten-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum velit non ea minus dignissimos laboriosam commodi.
-              Magnam reiciendis, animi tenetur laudantium iusto consequuntur ipsum fuga illum nobis aspernatur, eos nisi.</p>
+            <p class="grey-text text-lighten-4">The most stylish global marketplace to buy and sell pre-owned luxury handbags and purses. Every day, carefully
+                selected new products are uploaded from brands such as Chanel, Louis Vuitton, Burberry, Celine... We offer the
+                most coveted and hard-to-find items. All items are curated and quality checked by our team of experts. You can
+                sell to our community of over 3 million fashion lovers around the world. Our curators accept thousands of luxury
+                and designer brands including Alexander Wang, Michael Kors, Chanel, Sandro... By selling your items,
+                you are able to refresh your closet and boost your shopping budget for new pieces! It's never been easier to
+                make money and refresh your wardrobe. Buy, sell, share!</p>
 
           </div>
           <div class="col l3 s12">
@@ -285,8 +290,8 @@
           //Clicking on card gets stores dbs index in localStorage
           $('.card_bag').on('click', function () {
            var x = r[$(this).attr("index")].name + ", " + r[$(this).attr("index")].material
-          alert(x)
-            alert("Shaz, passing Index: "+r[$(this).attr("index")].id+" in localStorage.  Just use localStorage.getItem('BagIndexToBuy')" )
+         // alert(x)
+           // alert("Shaz, passing Index: "+r[$(this).attr("index")].id+" in localStorage.  Just use localStorage.getItem('BagIndexToBuy')" )
             localStorage.setItem("BagIndexToBuy",r[$(this).attr("index")].id)
             console.log("Testing getItem: "+localStorage.getItem("BagIndexToBuy"))
           })

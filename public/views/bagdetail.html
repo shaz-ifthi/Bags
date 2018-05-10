@@ -68,8 +68,9 @@
 
       <!-- start of bag image -->
       <div class="col s9">
-        <img class="materialboxed" width="650" src="../assets/images/sample-1.jpg">
-
+        
+        <img src="" class="bImage materialboxed" width="450">
+        
         <!-- end of bag image -->
       </div>
 
@@ -77,14 +78,13 @@
       <div class="col s3">
         <br>
         <br>
-        <h5>Bag Name Here</h5>
+        <h5 class="bName"></h5>
         <br>
-        <h6>Brand Name Here</h6>
-        <h6>Style Here</h6>
-        <h6>Color Here</h6>
+        <h6 class="bModel"></h6>
+        <h6 class="bStyle"></h6>
+        <h6 class="bColor"></h6>
         <br>
-        <h6 id="bagDesc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio nam quibusdam, qui et sunt a neque, vitae numquam
-          tenetur ut ratione praesentium! Delectus quasi explicabo aliquid ut error itaque voluptatum.</h6>
+        <h6 id="bagDesc"></h6>
         <br>
         <br>
         <a id="buy" class="waves-effect waves-light btn buyButton">Take me Home</a>
@@ -152,29 +152,24 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
   <script>
+    var getId = localStorage.getItem("BagIndexToBuy")
+    var id = getId - 1
+    renderDetailsToScreen("/api/bags",id)
 
-    $.get('/api/bags').then(function (r) {
-      if (r.length === 0) {
-        $(".collection-results").append("No bags available")
-      }
-      else {
-        for (var i = 0; i < r.length; i++) {
-          // alert(r)
-          $(".collection-results").append(
-            '<div class="col s4">\
-              <div class="card">\
-                <div class="card-image">\
-                  <img src="'+ r[i].image + '" class="hoverZoomLink">\
-                </div>\
-                <div class="card-content">'+ r[i].model + " by " + r[i].name + '<p>$' + r[i].price + '</p>\
-                <p>Material: '+ r[i].material + '</p>\
-                <p>Color: '+ r[i].color + '</p></div>\
-                </div>\
-              </div>'
-          )
+    function renderDetailsToScreen(routePath,id) {
+      
+        $.get(routePath).then(function (r) {
+              $(".bName").append(r[id].name)
+              $(".bModel").append(r[id].model)
+              $(".bStyle").append(r[id].style)
+              $(".bColor").append(r[id].color)
+              $("#bagDesc").append(r[id].description)
+              
+              $(".bImage").attr("src",r[id].image);
+              
+        })
         }
-      }
-    })
+    
   </script>
 
 
