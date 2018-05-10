@@ -77,7 +77,7 @@ module.exports = function (app) {
         ]
       }
     }).then(function (bag) {
-     res.json(bag);
+      res.json(bag);
     });
   });
 
@@ -108,10 +108,10 @@ module.exports = function (app) {
   });
 
 
-//-----------------------
-app.post("/api/bags", function (req, res) {
-  // This route is used to add to bags_db.bags when using the sell form.  - Working
-      db.bag.create({
+  //-----------------------
+  app.post("/api/bags", function (req, res) {
+    // This route is used to add to bags_db.bags when using the sell form.  - Working
+    db.bag.create({
       name: req.body.name,
       model: req.body.model,
       quantity: req.body.quantity,
@@ -134,72 +134,61 @@ app.post("/api/bags", function (req, res) {
       });
   });
 
-  // GET route for getting 1 bag from DB. Used by /Buy
-  app.get("/api/bags/buy/:index", function (req, res) {
-    db.bag.findAll({
-      where: {
-        $or: [
-          {
-            name:
-              { $eq: req.params.filter }
-          },
-          {
-            material:
-              { $eq: req.params.filter }
-          },
-          {
-            color:
-              { $eq: req.params.filter }
-          }
-        ]
-      }
-    }).then(function (bag) {
-      // We have access to the bags as an argument inside of the callback function
-      res.json(bag);
-    });
+
+  // ????
+  // app.get("/api/bags/buy/:index", function (req, res) {
+  //   // GET route for getting 1 bag from DB. Used by /Buy
+  //   db.bag.findAll({
+  //     where: {
+  //       $or: [
+  //         {
+  //           name:
+  //             { $eq: req.params.filter }
+  //         },
+  //         {
+  //           material:
+  //             { $eq: req.params.filter }
+  //         },
+  //         {
+  //           color:
+  //             { $eq: req.params.filter }
+  //         }
+  //       ]
+  //     }
+  //   }).then(function (bag) {
+  //     // We have access to the bags as an argument inside of the callback function
+  //     res.json(bag);
+  //   });
+  // });
 
 
 
 
-    // DELETE route for deleting bags. We can get the id of the bag to be deleted from
-    // req.params.id
-    app.delete("/api/bags", function (req, res) {
-      // We just have to specify which bag we want to destroy with "where"
-      db.bag.destroy({
+  // // DELETE route for deleting bags. We can get the id of the bag to be deleted from
+  // // req.params.id
+  // app.delete("/api/bags", function (req, res) {
+  //   // We just have to specify which bag we want to destroy with "where"
+  //   db.bag.destroy({
+  //     where: {
+  //       name: req.body.name
+  //     }
+  //   }).then(function (bag) {
+  //     res.json(bag);
+  //   });
+  // });
+
+  // PUT route for updating bags after purchase. We can get the updated bag data from req.body
+  app.put("/api/bags/buy/", function (req, res) {
+    db.bag.update({
+      quantity: req.body.quantity - 1,
+      sold: TRUE,
+      bought_by: "Prasangi"
+    }, {
         where: {
-          name: req.body.name
+          id: req.body.id
         }
       }).then(function (bag) {
         res.json(bag);
-      });
-
-    });
-
-    // PUT route for updating bagss. We can get the updated bag data from req.body
-    app.put("/api/bags", function (req, res) {
-
-      // Update takes in an object describing the properties we want to update, and
-      // we use where to describe which objects we want to update
-      db.bag.update({
-        name: req.body.name,
-        model: req.body.model,
-        quantity: req.body.quantity,
-        price: req.body.price,
-        color: req.body.color,
-        material: req.body.material
-      }, {
-          where: {
-            name: req.body.name
-
-          }
-        }).then(function (bag) {
-          res.json(bag);
-        })
-        .catch(function (err) {
-          // Whenever a validation or flag fails, an error is thrown
-          // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-          res.json(err);
-        });
-    });
+      })
   });
 }

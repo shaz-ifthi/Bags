@@ -92,7 +92,7 @@
         <br>
         <br>
         <a id="resellBag" class="waves-effect waves-light btn buyButton">Resell Mine</a>
-       
+
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
           <div class="modal-content">
@@ -103,12 +103,12 @@
 
           </div>
           <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="purhaseFromModal">Purchase</a>
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="purchaseFromModal">Purchase</a>
             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="Cancel">Cancel</a>
           </div>
-        </div>  
+        </div>
         <!-- end of bag details (right column) -->
-       
+
       </div>
     </div>
 
@@ -185,19 +185,34 @@
             $(".bModel").append(r[i].model)
             $(".bStyle").append(r[i].style)
             $(".bColor").append(r[i].color)
-            $(".bPrice").append("$"+r[i].price)
+            $(".bPrice").append("$" + r[i].price)
             $("#bagDesc").append(r[i].description)
             $(".bImage").attr("src", r[i].image);
             break
           }
         }
-        $('#buyBag').on('click',function(){
-            $('#modal1').modal('open');
-            $()
+        $('#buyBag').on('click', function () {
+          $('#modal1').modal('open');
+          console.log(r[currentBagIndex])
+          $('#modalBagDetails').append(r[currentBagIndex].model + " by " + r[currentBagIndex].name + "<br>\
+                                          Price: $"+ r[currentBagIndex].price)
+          updateBagAfterBuy(r[currentBagIndex])
         })
       })
     }
 
+    function updateBagAfterBuy(bagToUpdate) {
+      //Function that handles PUT, after bag is bought
+      $.ajax({
+        method: "PUT",
+        url: "/api/bags/buy/",
+        data: bagToUpdate
+      })
+        .then(function () {
+          // alert("Congratulations")
+          window.location.href = "/collections"
+        })
+    }
 
   </script>
 
