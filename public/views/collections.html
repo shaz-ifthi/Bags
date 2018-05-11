@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="../assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="../assets/css/background.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -111,7 +112,7 @@
       <!-- Filter Column Ends -->
 
       <!-- Product Gallery Section Starts -->
-      <div class="col s12 m8 l9" id="collectionColumn" >
+      <div class="col s12 m8 l9" id="collectionColumn">
         <!-- Note that "m8 l9" was added -->
 
         <!-- Second Column Starts -->
@@ -135,12 +136,12 @@
           <div class="col l6 s12">
             <h5 class="white-text">Company Bio</h5>
             <p class="grey-text text-lighten-4">The most stylish global marketplace to buy and sell pre-owned luxury handbags and purses. Every day, carefully
-                selected new products are uploaded from brands such as Chanel, Louis Vuitton, Burberry, Celine... We offer the
-                most coveted and hard-to-find items. All items are curated and quality checked by our team of experts. You can
-                sell to our community of over 3 million fashion lovers around the world. Our curators accept thousands of luxury
-                and designer brands including Alexander Wang, Michael Kors, Chanel, Sandro... By selling your items,
-                you are able to refresh your closet and boost your shopping budget for new pieces! It's never been easier to
-                make money and refresh your wardrobe. Buy, sell, share!</p>
+              selected new products are uploaded from brands such as Chanel, Louis Vuitton, Burberry, Celine... We offer
+              the most coveted and hard-to-find items. All items are curated and quality checked by our team of experts.
+              You can sell to our community of over 3 million fashion lovers around the world. Our curators accept thousands
+              of luxury and designer brands including Alexander Wang, Michael Kors, Chanel, Sandro... By selling your items,
+              you are able to refresh your closet and boost your shopping budget for new pieces! It's never been easier to
+              make money and refresh your wardrobe. Buy, sell, share!</p>
 
           </div>
           <div class="col l3 s12">
@@ -188,15 +189,15 @@
       var designer = "All"
       var material = "All"
       var color = "All"
-                 
+
       //Show all bags on first
       renderBagsToScreen("/api/bags")
 
-      
+
       //On click events for designer filter      
       $(".designer_filter").on('click', function () {
         // $(".designer_filter").removeClass("active") - use later for filter fix
-        
+
         // manipulates the highlighted filter selection
         $(".collection-item").removeClass("active")
         $(this).addClass("active")
@@ -205,20 +206,20 @@
         $("html, body").animate({ scrollTop: 0 }, "slow");
         var path = ''
         designer = $(this).attr("value")
-        
+
         //determines which route, based on filter selections
-        if (designer==="All"){
+        if (designer === "All") {
           path = 'api/bags'
         }
-        else if(designer==="Other"){
-          path = 'api/bags/other/'+ designer
+        else if (designer === "Other") {
+          path = 'api/bags/other/' + designer
         }
         else {
           path = '/api/bags/' + designer
         }
         renderBagsToScreen(path)
       })
-      
+
 
       //On click events for material filter      
       $(".material_filter").on('click', function () {
@@ -228,18 +229,18 @@
         material = $(this).attr("value")
         $("html, body").animate({ scrollTop: 0 }, "slow");
         var path = ''
-        if (material==="All"){
+        if (material === "All") {
           path = 'api/bags'
         }
-        else if(material==="Other"){
-          path = 'api/bags/other/'+ material
+        else if (material === "Other") {
+          path = 'api/bags/other/' + material
         }
         else {
           var path = '/api/bags/' + material
         }
         renderBagsToScreen(path)
       })
-      
+
       //On click events for color filter      
       $(".color_filter").on('click', function () {
         // $(".color_filter").removeClass("active") - use later for filter fix
@@ -248,18 +249,18 @@
         color = $(this).attr("value")
         $("html, body").animate({ scrollTop: 0 }, "slow");
         var path = ''
-        if (color==="All"){
+        if (color === "All") {
           path = 'api/bags'
         }
-        else if(color==="Other"){
-          path = 'api/bags/other/'+ color
+        else if (color === "Other") {
+          path = 'api/bags/other/' + color
         }
         else {
           var path = '/api/bags/' + color
         }
         renderBagsToScreen(path)
       })
-    
+
 
 
       //render bags to screen, based on routePath.  Dependent on the click action from
@@ -275,7 +276,7 @@
 
               $(".collection-results").append(
                 '<div class="col s4">\
-              <a href = /buy><div class="card card_bag" data-index="'+i+ '" index="'+ i + '">\
+              <a href = /buy><div class="card card_bag" data-index="'+ i + '" index="' + i + '">\
                 <div class="card-image">\
                   <img src="'+ r[i].image + '" class="bag_image hoverZoomLink">\
                 </div>\
@@ -289,16 +290,16 @@
 
           //Clicking on card gets stores dbs index in localStorage
           $('.card_bag').on('click', function () {
-           var x = r[$(this).attr("index")].name + ", " + r[$(this).attr("index")].material
-         // alert(x)
-           // alert("Shaz, passing Index: "+r[$(this).attr("index")].id+" in localStorage.  Just use localStorage.getItem('BagIndexToBuy')" )
-            localStorage.setItem("BagIndexToBuy",r[$(this).attr("index")].id)
-            console.log("Testing getItem: "+localStorage.getItem("BagIndexToBuy"))
+            var x = r[$(this).attr("index")].name + ", " + r[$(this).attr("index")].material
+            // alert(x)
+            // alert("Shaz, passing Index: "+r[$(this).attr("index")].id+" in localStorage.  Just use localStorage.getItem('BagIndexToBuy')" )
+            localStorage.setItem("BagIndexToBuy", r[$(this).attr("index")].id)
+            console.log("Testing getItem: " + localStorage.getItem("BagIndexToBuy"))
           })
         })
       }
 
-      
+
     </script>
 
 
