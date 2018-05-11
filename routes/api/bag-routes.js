@@ -181,7 +181,7 @@ module.exports = function (app) {
   app.put("/api/bags/buy/", function (req, res) {
     db.bag.update({
       quantity: req.body.quantity - 1,
-      sold: TRUE,
+      sold: true,
       bought_by: "Prasangi"
     }, {
         where: {
