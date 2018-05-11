@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Collections</title>
+
+  <!-- CSS  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="../assets/css/background.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- nav bar starts here -->
+  <div class="navbar-fixed">
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <ul class="left hide-on-med-and-down">
+          <li>
+            <a id="logo-container" href="/" class="left">Home</a>
+          </li>
+          <li>
+            <a href="/collections">Collections</a>
+          </li>
+          <li>
+            <a href="/staffpicks">Staff Picks</a>
+          </li>
+          <li>
+            <a href="/sell">Sell</a>
+          </li>
+          <li>
+            <a href="/account">Account Overview</a>
+          </li>
+          <li>
+            <a href="/users">Sign Up</a>
+          </li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a href="#">
+              <i class="material-icons">search</i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="material-icons">shopping_cart</i>
+            </a>
+          </li>
+          <li>
+            <a href="/account">
+              <i class="material-icons">account_circle</i>
+            </a>
+          </li>
+          <li>
+            <a class="waves-effect waves-light btn">Login</a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+  </div>
+  <!-- nav bar ends here -->
+  <div class="container">
+
+    <!-- Entire Body Starts -->
+    <div class="row">
+      <!-- Product Gallery Section Starts -->
+      <div class="col s12 m8 l9" id="collectionColumn">
+        <!-- Note that "m8 l9" was added -->
+
+        <!-- Second Column Starts -->
+        <div class="row">
+          <div class="col s12">
+            <!--Dynamic bags results appear here  -->
+            <!-- <div class="card" id="card-account">
+              <div class="card-header" id="card-header-account"> -->
+            <span id="searchParam" style="font-size:20px"> Prasangi M. purchase history as of
+              <span id="dateNow"></span>
+            </span>
+            <br>
+            <div class="top-Articles">
+              <div class="articles-section">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Purchased</th>
+                      <th scope="col">Model</th>
+                      <th scope="col">Brand</th>
+                      <th scope="col">Material</th>
+                      <th scope="col">Color</th>
+                      <th scope="col">Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+              <!-- </div> -->
+              <!-- </div> -->
+            </div>
+            <div class="orderHistory"></div>
+          </div>
+        </div>
+        <!-- Second Column Ends -->
+      </div>
+      <!-- Product Gallery Section Ends -->
+    </div>
+    <!-- Entire Body Ends -->
+
+
+    <!-- footer starts here -->
+
+
+    <!-- footer ends here -->
+
+
+
+    <!--  Scripts-->
+    <!-- MomentJS -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <script> 
+
+      //update time in html
+      $("#dateNow").html(moment().format('MM/DD/YYYY'))
+
+      //update values on html table
+      $(".orderHistory").empty()
+      $.get("/api/bags/").then(function (r) {
+        var dynamicRowAdd = ''
+
+        for (var i = 0; i < r.length; i++) {
+          if (r[i].bought_by === 'Prasangi') {
+            dynamicRowAdd += "<tr><td>" + moment(r[i].updatedAt).format('MM/DD/YYYY') + "</td><td>" + r[i].name + "</td><td>" + r[i].model + "</td><td>" + r[i].material + "</td><td>" + r[i].color + "</td><td>$" + r[i].price + "</td><td></td></tr>"
+          }
+        }
+
+        $("tbody").append(dynamicRowAdd)
+      })
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
