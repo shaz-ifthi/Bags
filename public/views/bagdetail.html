@@ -116,6 +116,7 @@
   </div>
 
 
+
   <!-- footer starts here -->
   <footer class="page-footer teal">
     <div class="container">
@@ -201,7 +202,10 @@
           console.log(r[currentBagIndex])
           $('#modalBagDetails').append(r[currentBagIndex].model + " by " + r[currentBagIndex].name + "<br>\
                                           Price: $"+ r[currentBagIndex].price)
-          updateBagAfterBuy(r[currentBagIndex])
+          $('#purchaseFromModal').on('click', function(){
+                           updateBagAfterBuy(r[currentBagIndex])
+                          }) 
+            
         })
       })
     }
