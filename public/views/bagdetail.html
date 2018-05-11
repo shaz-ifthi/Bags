@@ -99,13 +99,14 @@
             <h4>Purchase Page</h4>
             <p>You are about to purchase:</p>
             <span id="modalBagDetails"></span>
+
+
           </div>
           <div class="modal-footer">
             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="purchaseFromModal">Purchase</a>
             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="Cancel">Cancel</a>
           </div>
         </div>
-        
         <!-- end of bag details (right column) -->
 
       </div>
@@ -125,9 +126,10 @@
           <p class="grey-text text-lighten-4">The most stylish global marketplace to buy and sell pre-owned luxury handbags and purses. Every day, carefully
             selected new products are uploaded from brands such as Chanel, Louis Vuitton, Burberry, Celine... We offer the
             most coveted and hard-to-find items. All items are curated and quality checked by our team of experts. You can
-            sell to our community of over 3 million fashion lovers around the world. By selling your items, you are able
-            to refresh your closet and boost your shopping budget for new pieces! It's never been easier to make money and
-            refresh your wardrobe. Buy, sell, share!</p>
+            sell to our community of over 3 million fashion lovers around the world. Our curators accept thousands of luxury
+            and designer brands including Alexander Wang, Michael Kors, Chanel, Sandro... By selling your items, you are
+            able to refresh your closet and boost your shopping budget for new pieces! It's never been easier to make money
+            and refresh your wardrobe. Buy, sell, share!</p>
 
         </div>
         <div class="col l3 s12">
@@ -171,9 +173,9 @@
 
   <script>
 
-    //initialize all modals
+//initialize all modals
     $('.modal').modal();
-
+    
     var getId = localStorage.getItem("BagIndexToBuy")
     var id = parseInt(getId)
     renderDetailsToScreen("/api/bags", id)
@@ -198,15 +200,14 @@
           }
         }
         $('#buyBag').on('click', function () {
-          $('#modalBagDetails').empty()
           $('#modal1').modal('open');
           console.log(r[currentBagIndex])
           $('#modalBagDetails').append(r[currentBagIndex].model + " by " + r[currentBagIndex].name + "<br>\
                                           Price: $"+ r[currentBagIndex].price)
           $('#purchaseFromModal').on('click', function () {
-            
             updateBagAfterBuy(r[currentBagIndex])
           })
+
         })
       })
     }
@@ -219,19 +220,21 @@
         data: bagToUpdate
       })
         .then(function () {
-          window.location.href = "/account"
+          alert("Congratulations")
+          window.location.href = "/collections"
         })
     }
 
     function redirectToSell() {
-      $('#resellBag').on('click', function () {
 
-        window.location.href = "/sell"
-
-      })
-    }
-
-
+        $('#resellBag').on('click', function () {
+        //window.location.href="/users"
+        window.location.href="/sell"
+        addToForm()
+    })
+  }
+   
+     
 
 
 
