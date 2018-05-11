@@ -1,12 +1,7 @@
-/* Custom Stylesheet */
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
-
- /* collections page stylesheets */
+/* Index Page */
+.midPar {
+  color: black;
+}
 
 /* newbag.html */
 .form-group {
@@ -47,6 +42,11 @@
   font-size:75%;
 }
 
+/* Popular Page */
+#popularColumn {
+  padding-top: 50px;
+}
+
 /* buy bag page */
 .buyButton {
   width: 100%;
@@ -65,6 +65,7 @@ nav .brand-logo {
 
 .tagLines {
   color: #003A42;
+  font-style: italic;
 }
 
 p {
