@@ -17,7 +17,9 @@ module.exports = function (app) {
   // ---------
   app.get('/api/bags', function (req, res) {
     // This route is used to return ALL the bags - Working
-    db.bag.findAll({}).then(function (bag) {
+    db.bag.findAll({
+     
+    }).then(function (bag) {
       // We have access to the bags as an argument inside of the callback function
       res.json(bag);
     });
@@ -30,6 +32,7 @@ module.exports = function (app) {
     db.bag.findAll({
       where: {
         $and: [
+         
           {
             name:
               { $ne: 'Prada' },
@@ -87,6 +90,7 @@ module.exports = function (app) {
     // This route returns entries if filter is picked  - Working
     db.bag.findAll({
       where: {
+                  
         $or: [
           {
             name:
@@ -102,7 +106,7 @@ module.exports = function (app) {
           }
         ]
       }
-    }).then(function (bag) {
+          }).then(function (bag) {
       res.json(bag);
     });
   });
@@ -135,33 +139,7 @@ module.exports = function (app) {
   });
 
 
-  // ????
-  // app.get("/api/bags/buy/:index", function (req, res) {
-  //   // GET route for getting 1 bag from DB. Used by /Buy
-  //   db.bag.findAll({
-  //     where: {
-  //       $or: [
-  //         {
-  //           name:
-  //             { $eq: req.params.filter }
-  //         },
-  //         {
-  //           material:
-  //             { $eq: req.params.filter }
-  //         },
-  //         {
-  //           color:
-  //             { $eq: req.params.filter }
-  //         }
-  //       ]
-  //     }
-  //   }).then(function (bag) {
-  //     // We have access to the bags as an argument inside of the callback function
-  //     res.json(bag);
-  //   });
-  // });
-
-
+  
 
 
   // // DELETE route for deleting bags. We can get the id of the bag to be deleted from
