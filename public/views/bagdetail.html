@@ -172,9 +172,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
   <script>
-    //initialize all modals
-    $('.modal').modal();
 
+//initialize all modals
+    $('.modal').modal();
+    
     var getId = localStorage.getItem("BagIndexToBuy")
     var id = parseInt(getId)
     renderDetailsToScreen("/api/bags", id)
