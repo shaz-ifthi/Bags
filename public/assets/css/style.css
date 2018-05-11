@@ -64,7 +64,7 @@ nav .brand-logo {
 }
 
 .tagLines {
-  color: #003A42;
+  color: rgb(1, 26, 29);
   font-style: italic;
 }
 
@@ -140,3 +140,14 @@ table{
 .active{
   color: rgb(81, 203, 219);
 }
+
+#logo{
+  background-color: rgb(129, 89, 240);
+}
+
+#tagLine{
+  color: rgb(1, 26, 29); 
+  font-style: italic;
+  font-weight: 350;
+}
+
