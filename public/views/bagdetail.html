@@ -179,6 +179,7 @@
     var getId = localStorage.getItem("BagIndexToBuy")
     var id = parseInt(getId)
     renderDetailsToScreen("/api/bags", id)
+    redirectToSell("/models/sell", id)
 
     function renderDetailsToScreen(routePath, id) {
       //This function returns all bags in db_bags.bag.  Then, it "filters" based on ID 
@@ -206,7 +207,7 @@
           $('#purchaseFromModal').on('click', function () {
             updateBagAfterBuy(r[currentBagIndex])
           })
-          
+
         })
       })
     }
@@ -223,6 +224,28 @@
           window.location.href = "/collections"
         })
     }
+
+    function redirectToSell() {
+
+        $('#resellBag').on('click', function () {
+        //window.location.href="/users"
+        window.location.href="/sell"
+        addToForm()
+    })
+  }
+   
+     
+
+
+
+
+
+
+
+
+
+
+
 
   </script>
 
