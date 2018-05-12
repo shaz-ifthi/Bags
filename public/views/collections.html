@@ -272,9 +272,9 @@
           }
           else {
             for (var i = 0; i < r.length; i++) {
-
-              $(".collection-results").append(
-                '<div class="col s4">\
+              if (r[i].sold === false) {
+                $(".collection-results").append(
+                  '<div class="col s4">\
                 <a href = /buy><div class="card card_bag" data-index="'+ i + '" index="' + i + '">\
                 <div class="card-image">\
                 <img src="'+ r[i].image + '" class="bag_image hoverZoomLink">\
@@ -283,7 +283,8 @@
                 <p>'+ r[i].material + ", " + r[i].color + '</p>\
                 </div>\
                 </div></a>'
-              )
+                )
+              }
             }
           }
 
