@@ -107,7 +107,20 @@
         </div>
         <!-- Second Column Ends -->
       </div>
-      <!-- Product Gallery Section Ends -->
+      <!-- Product Gallery Section Ends --> 
+      <!-- Modal Structures -->
+        <div id="modal-purchased" class="modal">
+            <div class="modal-content">
+              <h4>Purchased!</h4>
+              <p>Thank you for your order. We will send an email once your order is processed.</p>
+              <p>Redirecting to your Accounts Overview page....</p>
+              
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="purchaseFromModal">Purchase</a>
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="Cancel">Cancel</a>
+            </div>
+          </div>
     </div>
     <!-- Entire Body Ends -->
 
@@ -145,7 +158,7 @@
       })
 
 
-
+$('.modal').modal();
 
     </script>
 
