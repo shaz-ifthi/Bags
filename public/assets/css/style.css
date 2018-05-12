@@ -154,6 +154,7 @@ table{
 #filter{
   color: #64b5f6;
   font-size: 14px;
+  font-weight: 450;
   
 }
 
@@ -184,6 +185,13 @@ table{
 
 .card-staffPick-clickable{
   height:500px;
+}
+
+#logo-container{
+  color: #64b5f6;
+  font-family: "Pinyon Script";
+  font-size: 35px;
+  font-weight: 400;
 }
 
 
