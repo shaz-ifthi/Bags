@@ -157,3 +157,34 @@ table{
   
 }
 
+.card-image-staffPick{
+  height:30%;
+  width:30%;
+}
+
+.card-image-staffPick-bag{
+  height:750%;
+  width:75%;
+  margin-top: 5%;
+}
+
+.card-content-staffPick{
+  color: rgb(1, 26, 29); 
+  font-style: italic;
+  font-weight: 350;
+  text-align: center;
+}
+
+.staff_name{
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: oblique;
+  text-align: center;
+  text-decoration-line: underline;
+ }
+
+.card-staffPick-clickable{
+  height:500px;
+}
+
+
+
