@@ -154,6 +154,7 @@ table{
 #filter{
   color: #64b5f6;
   font-size: 14px;
+  font-weight: 450;
   
 }
 
@@ -186,9 +187,13 @@ table{
   height:500px;
 }
 
-#signOnName{
-  color: black;
-  text-decoration-style: solid;
+
+
+#logo-container{
+  color: #64b5f6;
+  font-family: "Pinyon Script";
+  font-size: 35px;
+  font-weight: 400;
 }
 
 
