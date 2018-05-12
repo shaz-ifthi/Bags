@@ -93,7 +93,7 @@
         <br>
         <a id="resellBag" class="waves-effect waves-light btn buyButton">Resell Mine</a>
 
-        <!-- Modal Structure -->
+        <!-- Modal Structures -->
         <div id="modal1" class="modal">
           <div class="modal-content">
             <h4>Purchase Page</h4>
@@ -105,7 +105,7 @@
             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="Cancel">Cancel</a>
           </div>
         </div>
-        
+               
         <!-- end of bag details (right column) -->
 
       </div>
@@ -205,6 +205,7 @@
                                           Price: $"+ r[currentBagIndex].price)
           $('#purchaseFromModal').on('click', function () {
             
+            alert("Thank you for your purchase. We will send an email once your order is processed. Redirecting to your Accounts Overview page.")
             updateBagAfterBuy(r[currentBagIndex])
           })
         })
