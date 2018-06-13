@@ -1,5 +1,5 @@
 # Bags
-Deploy link - https://dashboard.heroku.com/apps/nameless-scrubland-79746
+Deploy link - https://nameless-scrubland-79746.herokuapp.com/
 
 Group project for Shaz Ifthikar, Alvin Ayusa, Prasangi M & Michael Gamatero
 Fullstack app that utilizes Javascript, CSS, Materialize, Node, Express, API Routing, JQuery, MySQL
