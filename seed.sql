@@ -25,13 +25,6 @@ SET id="", name="Louis Vuitton", model="Montaigne MM", quantity=1, price=2460.00
 INSERT INTO bags 
 SET id="", name="Louis Vuitton", model="Neverfull MM", quantity=1, price=2260.00, color="Blue", material="Leather", SKU = "M51053", image="https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_AS/louis-vuitton-neverf-mm-epi-bleu-denim-epi-leather-handbags--M51053_2_PM2_Front%20view.jpg?wid=485&hei=485", description= "A Louis Vuitton classic.  Soft calfskin leather embossed with iconic Louis Vuitton icons.  A must for every woman's collection.", sold = "FALSE", bought_by="x";
 
-INSERT INTO bags 	
-SET id="", name="UCI Coding Bootcamp", model="Universal Plastic", quantity=1, price=12000.00, color="White", material="Plastic", SKU = "N/A", image="https://images-na.ssl-images-amazon.com/images/I/81sbXw5yIAL._SY355_.jpg", description= "Hang in there buddy.", sold = "FALSE", bought_by="x";	
-
-INSERT INTO bags 	
-SET id="", name="Glad", model="Tall Trash Bag", quantity=1, price=8.99, color="White", material="Plastic", SKU = "N/A", image="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQX1H7Ytg77d_zS_T85UXOOi-rAiRKnpODlUWNWVeHjjif9eJA&usqp=CAY", description= "This is all we can afford after buying the white plastic bag.", sold = "FALSE", bought_by="x";
-
-
 INSERT INTO users
 SET id="", name="Jane Smith", email="jane@something.com", password ="word", credits=10000; 
 -- itemsPurchased = "true";
@@ -45,7 +38,7 @@ SET id="", name="Shaz Ifthi", email="shaz@something.com", password ="word", cred
 -- itemsPurchased = "true";
 
 INSERT INTO users
-SET id="", name="Kim Geller", email="roseg@something.com", password ="word", credits=10000; 
+SET id="", name="Kim Geller", email="kimg@something.com", password ="word", credits=10000; 
 -- itemsPurchased = "true";
 
 -- SELECT * FROM bags_db.user;
