@@ -26,28 +26,31 @@
             <a href="/collections">Collections</a>
           </li>
           <li>
-            <a href="/popular">Popular</a>
+            <a href="/staffpicks">Staff Picks</a>
           </li>
           <li>
             <a href="/sell">Sell</a>
           </li>
           <li>
-            <a href="/users">Account</a>
+            <a href="/account">Account Overview</a>
+          </li>
+          <li>
+            <a href="/users">Sign Up</a>
           </li>
         </ul>
         <ul class="right hide-on-med-and-down">
           <li>
-            <a href="sass.html">
+            <a href="#">
               <i class="material-icons">search</i>
             </a>
           </li>
           <li>
-            <a href="sass.html">
+            <a href="#">
               <i class="material-icons">shopping_cart</i>
             </a>
           </li>
           <li>
-            <a href="/users">
+            <a href="/account">
               <i class="material-icons">account_circle</i>
             </a>
           </li>
@@ -94,7 +97,7 @@
         <br>
         <a id="resellBag" class="waves-effect waves-light btn buyButton blue lighten-2">Resell Mine</a>
 
-        <!-- Modal Structure -->
+        <!-- Modal Structures -->
         <div id="modal1" class="modal">
           <div class="modal-content">
             <h4>Purchase Page</h4>
@@ -106,7 +109,7 @@
             <a href="#!" class=" modal-action modal-close waves-effect waves-blue btn-flat" id="Cancel">Cancel</a>
           </div>
         </div>
-        
+               
         <!-- end of bag details (right column) -->
 
       </div>
@@ -206,6 +209,7 @@
                                           Price: $"+ r[currentBagIndex].price)
           $('#purchaseFromModal').on('click', function () {
             
+            alert("Thank you for your purchase. We will send an email once your order is processed. Redirecting to your Accounts Overview page.")
             updateBagAfterBuy(r[currentBagIndex])
           })
         })

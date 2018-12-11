@@ -21,13 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mgamatero/Bags.git"
-  },
-  "author": "MG, AA, P, SI",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mgamatero/Bags/issues"
-  },
-  "homepage": "https://github.com/mgamatero/Bags#readme",
-  "keywords": []
+    "url": "git+https://github.com/shaz-ifthi/Bags.git"
+  }
+ 
 }
