@@ -16,6 +16,13 @@
   },
   "production": {
     "use_env_variable":"JAWSDB_URL",
-    "dialect":"mysql"
+    "dialect":"mysql",
+    "username": "root",
+    "password": "root",
+    "database": "bags_db",
+    "host": "127.0.0.1",
+    "port":3308
+    
+    
   }
 }
